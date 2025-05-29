@@ -28,15 +28,13 @@ def capture_video_audio():
 
     # Command to capture video and audio
     command = [
-        "ffmpeg",
-        "-f", "v4l2", "-video_size", "640x480", "-i", "serial port",#mention serial port path
-        "-f", "alsa", "-ac", "1", "-ar", "16000", "-sample_fmt", "s16", "-i", "hw:2,0",
-        "-t", str(duration),
-        "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
-        "-vf", "scale=640:480", "-b:v", "1M", "-r", "30", "-g", "60",
-        "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
-        output_file
+    "ffmpeg",
+    "-f", "v4l2", "-i", "/dev/video0",
+    "-f", "alsa", "-i", "hw:2,0",
+    "-t", "10",
+    ...
     ]
+
     print(f"Running command: {' '.join(command)}")
 
     try:
