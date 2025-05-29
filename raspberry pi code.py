@@ -6,11 +6,11 @@ import asyncio
 from telegram import Bot
 
 # Telegram bot configuration
-BOT_TOKEN = "7827452985:AAHzLijecwRv_R290aJJ3ohNCCULeicg9v0"  # Replace with your bot token
-CHAT_ID = "6240903545"  # Replace with your chat ID
+BOT_TOKEN = " "  # Replace with your bot token
+CHAT_ID = "0000000000"  # Replace with your chat ID
 
 # Serial configuration
-SERIAL_PORT = "/dev/ttyACM0"  # Replace with the correct serial port
+SERIAL_PORT = " "  # Replace with the correct serial port path
 BAUD_RATE = 9600
 
 # Initialize the Telegram bot
@@ -29,7 +29,7 @@ def capture_video_audio():
     # Command to capture video and audio
     command = [
         "ffmpeg",
-        "-f", "v4l2", "-video_size", "640x480", "-i", "/dev/video0",
+        "-f", "v4l2", "-video_size", "640x480", "-i", "serial port",#mention serial port path
         "-f", "alsa", "-ac", "1", "-ar", "16000", "-sample_fmt", "s16", "-i", "hw:2,0",
         "-t", str(duration),
         "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
