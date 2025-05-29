@@ -79,7 +79,7 @@ async def main():
                 print(f"Received: {data} (Length: {len(data)})")
 
                 # Only process if the received data is '1'
-                if data  == "-1" or int(data) > 120:
+                if data  == "-1" :
                     print("Trigger received. Capturing video and audio...")
                     video_file = capture_video_audio()
                     if video_file:
