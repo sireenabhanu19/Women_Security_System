@@ -39,7 +39,7 @@ def capture_video_audio():
 
     try:
         # Run the command using subprocess and suppress all output
-        process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        process = subprocess.run(command)
         process.wait()  # Wait for the command to complete
 
         if process.returncode == 0:
