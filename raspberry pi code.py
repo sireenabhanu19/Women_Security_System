@@ -97,6 +97,4 @@ async def main():
     finally:
         ser.close()
 
-# Run the asyncio event loop
-if __name__ == "_main_":
-    asyncio.run(main())
+
